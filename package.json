@@ -1,6 +1,6 @@
 {
     "name": "@lxghtless/liscio-undici",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "",
     "main": "lib/index.js",
     "types": "lib/index.d.ts",
@@ -8,7 +8,7 @@
         "lib"
     ],
     "publishConfig": {
-    	"access": "public"
+        "access": "public"
     },
     "scripts": {
         "lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.js\"",
