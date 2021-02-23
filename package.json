@@ -12,6 +12,7 @@
     },
     "scripts": {
         "lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.js\"",
+        "pretest": "eslint \"lib/**/*.js\" \"test/**/*.js\"",
         "test": "tap --reporter nyan test/*.test.js test/**/*.test.js",
         "test:types": "tsd",
         "clean": "rimraf dist coverage .nyc_output"
