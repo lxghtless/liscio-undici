@@ -13,7 +13,7 @@
     "scripts": {
         "lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.js\"",
         "pretest": "eslint \"lib/**/*.js\" \"test/**/*.js\"",
-        "test": "tap --reporter nyan test/*.test.js test/**/*.test.js",
+        "test": "tap --reporter classic test/*.test.js test/**/*.test.js",
         "test:types": "tsd",
         "clean": "rimraf dist coverage .nyc_output"
     },
@@ -21,6 +21,7 @@
     "author": "lxghtless",
     "license": "ISC",
     "dependencies": {
+        "@lxghtless/brokkr": "^0.1.0",
         "undici": "^3.3.0"
     },
     "devDependencies": {

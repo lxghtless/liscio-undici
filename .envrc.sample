@@ -1,0 +1,2 @@
+export BROKKR_LOG_LEVEL=error
+export TEST_API_URL=

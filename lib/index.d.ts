@@ -1,17 +1,24 @@
 export interface LiscioClient {
+	request<T = any>(options: any): Promise<T>
 	close(): Promise<void>
-	delete<T = any>(endpoint: string, asJson?: boolean): Promise<T>
-	get<T = any>(endpoint: string, asJson?: boolean): Promise<T>
-	patch<T = any, P = any>(endpoint: string, payload: P, asJson?: boolean): Promise<T>
-	post<T = any, P = any>(endpoint: string, payload: P, asJson?: boolean): Promise<T>
-	put<T = any, P = any>(endpoint: string, payload: P, asJson?: boolean): Promise<T>
+	delete<T = any>(endpoint: string): Promise<T>
+	get<T = any>(endpoint: string): Promise<T>
+	patch<T = any, P = any>(endpoint: string, payload: P): Promise<T>
+	post<T = any, P = any>(endpoint: string, payload: P): Promise<T>
+	put<T = any, P = any>(endpoint: string, payload: P): Promise<T>
+}
+
+export interface LiscioInterceptor {
+	name: string
+	handler(): () => void | Promise<void>
+	config: any
 }
 
 export type LiscioClientOptions = {
 	baseUrl: string
 	userAgent?: string
-	autoParseJson?: boolean
-	resolveAuthHeader?(): Promise<string>
+	requestInterceptors?: LiscioInterceptor[]
+	responseInterceptors?: LiscioInterceptor[]
 	undiciOptions?: any
 }
 
