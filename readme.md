@@ -20,6 +20,9 @@
 	<a href="https://eslint.org/">
 		<img src="https://aleen42.github.io/badges/src/eslint.svg" />
 	</a>
+	<a href="https://codecov.io/gh/lxghtless/liscio-undici">
+		<img src="https://codecov.io/gh/lxghtless/liscio-undici/branch/main/graph/badge.svg?token=T7N6UWP035"/>
+	</a>
 </p>
 
 >  *Basic Example*
