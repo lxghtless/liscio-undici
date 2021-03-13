@@ -22,16 +22,18 @@ export type ResponseInterceptorInfo<T = any> = {
 	data: T
 }
 
-export interface LiscioRequestInterceptor<C = any> {
+export interface BaseInterceptor<C = any> {
 	name: string
-	handler: (requestData: RequestInterceptorData, config?: C) => void | Promise<void>
+	ignoreErrors?: boolean
 	config?: C
 }
 
-export interface LiscioResponseInterceptor<T = any, C = any> {
-	name: string
+export interface LiscioRequestInterceptor<C = any> extends BaseInterceptor<C> {
+	handler: (requestData: RequestInterceptorData, config?: C) => void | Promise<void>
+}
+
+export interface LiscioResponseInterceptor<T = any, C = any> extends BaseInterceptor<C> {
 	handler: (responseData: ResponseInterceptorInfo<T>, config?: C) => void | Promise<void>
-	config?: C
 }
 
 export type LiscioClientOptions = {
@@ -43,14 +45,30 @@ export type LiscioClientOptions = {
 	json?: boolean
 }
 
+/**
+ * Create a new LiscioClient with the provided options
+ *
+ * @param  {LiscioClientOptions} options
+ * @returns LiscioClient
+ */
 export function httpClientFactory(options: LiscioClientOptions): LiscioClient
 
 export declare class LiscioError extends Error {
-	errorResponse: string;
-	message: string;
-	name: string;
-	status: string;
-	statusCode: number;
+	errorResponse: string
+	message: string
+	name: string
+	status: string
+	statusCode: number
 
-	constructor(message: string, statusCode: number, errorResponse: string);
+	/**
+	 * @param  {string} message The liscio-undici provided error message
+	 * @param  {number} statusCode The status code provided by undici Client.ResponseData
+	 * @param  {string} errorResponse The error response body decoded to a string
+	 */
+	constructor(message: string, statusCode: number, errorResponse: string)
+}
+
+export declare const DefaultInterceptors: {
+	JsonParserResponseInterceptor: LiscioResponseInterceptor
+	JsonStringifyRequestInterceptor: LiscioRequestInterceptor
 }

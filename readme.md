@@ -7,7 +7,7 @@
 	<a href="https://github.com/nodejs/undici">
 		undici
 	</a>
-	http client wrapper.
+	http client wrapper with interceptors.
 </p>
 
 <p align="center">
