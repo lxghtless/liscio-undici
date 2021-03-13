@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[14],{88:function(s){s.exports=JSON.parse('{"allTagsPath":"/liscio-undici/blog/tags","slug":"docusaurus","name":"docusaurus","count":3,"permalink":"/liscio-undici/blog/tags/docusaurus"}')}}]);
