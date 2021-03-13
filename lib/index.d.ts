@@ -1,3 +1,5 @@
+import {Client} from 'undici'
+
 export interface LiscioClient {
 	request<T = any>(options: any): Promise<T>
 	close(): Promise<void>
@@ -8,18 +10,37 @@ export interface LiscioClient {
 	put<T = any, P = any>(endpoint: string, payload: P): Promise<T>
 }
 
-export interface LiscioInterceptor {
+export type RequestInterceptorData = {
+	method: string
+	path: string
+	headers: Record<string, string>
+	body?: Record<string, unknown> | string
+}
+
+export type ResponseInterceptorInfo<T = any> = {
+	response: Client.ResponseData
+	data: T
+}
+
+export interface LiscioRequestInterceptor<C = any> {
 	name: string
-	handler(): () => void | Promise<void>
-	config: any
+	handler: (requestData: RequestInterceptorData, config?: C) => void | Promise<void>
+	config?: C
+}
+
+export interface LiscioResponseInterceptor<T = any, C = any> {
+	name: string
+	handler: (responseData: ResponseInterceptorInfo<T>, config?: C) => void | Promise<void>
+	config?: C
 }
 
 export type LiscioClientOptions = {
 	baseUrl: string
 	userAgent?: string
-	requestInterceptors?: LiscioInterceptor[]
-	responseInterceptors?: LiscioInterceptor[]
+	requestInterceptors?: LiscioRequestInterceptor[]
+	responseInterceptors?: LiscioResponseInterceptor[]
 	undiciOptions?: any
+	json?: boolean
 }
 
 export function httpClientFactory(options: LiscioClientOptions): LiscioClient
