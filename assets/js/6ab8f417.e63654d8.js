@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[13],{85:function(o){o.exports=JSON.parse('{"allTagsPath":"/liscio-undici/blog/tags","slug":"facebook","name":"facebook","count":1,"permalink":"/liscio-undici/blog/tags/facebook"}')}}]);
