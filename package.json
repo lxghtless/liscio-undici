@@ -14,7 +14,7 @@
 		"lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.js\"",
 		"pretest": "eslint \"lib/**/*.js\" \"test/**/*.js\"",
 		"test": "BROKKR_LOG_LEVEL=silent tap test/*.test.js test/**/*.test.js",
-		"posttest": "tap --coverage-report=text-lcov | codecov",
+		"coverage": "tap --coverage-report=text-lcov | codecov --pipe",
 		"test:types": "tsd",
 		"clean": "rimraf .nyc_output",
 		"postinstall": "husky install"
