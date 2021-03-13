@@ -8,6 +8,7 @@ env:
   TEST_API_URL: ${{ secrets.TEST_API_URL }}
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   GIT_USER: lxghtless
+  CURRENT_BRANCH: main
   GIT_PASS: ${{ secrets.GIT_TOKEN }}
 
 jobs:
@@ -22,4 +23,4 @@ jobs:
       - run: npm run test:types
       - run: npm run test
       - run: npm run coverage
-      - run: cd site && yarn && yarn build && yarn deploy
+      - run: cd site && yarn && yarn deploy
