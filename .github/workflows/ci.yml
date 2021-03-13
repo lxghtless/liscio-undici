@@ -22,5 +22,4 @@ jobs:
       - run: npm run test:types
       - run: npm run test
       - run: npm run coverage
-      - run: cd site
-      - run: yarn deploy
+      - run: cd site && yarn deploy
