@@ -13,7 +13,7 @@ module.exports = {
         navbar: {
             title: 'liscio-undici',
             logo: {
-                alt: 'My Site Logo',
+                alt: 'liscio-undici',
                 src: 'img/logo.svg'
             },
             items: [
@@ -23,7 +23,6 @@ module.exports = {
                     label: 'Docs',
                     position: 'left'
                 },
-                {to: 'blog', label: 'Blog', position: 'left'},
                 {
                     href: 'https://github.com/lxghtless/liscio-undici',
                     label: 'GitHub',
@@ -38,12 +37,8 @@ module.exports = {
                     title: 'Docs',
                     items: [
                         {
-                            label: 'Style Guide',
+                            label: 'Install',
                             to: 'docs/'
-                        },
-                        {
-                            label: 'Second Doc',
-                            to: 'docs/doc2/'
                         }
                     ]
                 },
@@ -59,10 +54,6 @@ module.exports = {
                 {
                     title: 'More',
                     items: [
-                        {
-                            label: 'Blog',
-                            to: 'blog'
-                        },
                         {
                             label: 'GitHub',
                             href: 'https://github.com/lxghtless/liscio-undici'
@@ -82,12 +73,6 @@ module.exports = {
                     // Please change this to your repo.
                     editUrl:
                         'https://github.com/lxghtless/liscio-undici/edit/main/site/'
-                },
-                blog: {
-                    showReadingTime: true,
-                    // Please change this to your repo.
-                    editUrl:
-                        'https://github.com/lxghtless/liscio-undici/edit/main/site/blog/'
                 },
                 theme: {
                     customCss: require.resolve('./src/css/custom.css')

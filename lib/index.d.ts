@@ -41,7 +41,7 @@ export type LiscioClientOptions = {
 	userAgent?: string
 	requestInterceptors?: LiscioRequestInterceptor[]
 	responseInterceptors?: LiscioResponseInterceptor[]
-	undiciOptions?: any
+	undiciOptions?: Client.Options
 	json?: boolean
 }
 
