@@ -1,6 +1,6 @@
 {
 	"name": "@lxghtless/liscio-undici",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "A simple undici http client wrapper with interceptors.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
