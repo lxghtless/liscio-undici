@@ -7,3 +7,4 @@ dist
 .envrc
 try.js
 .vscode
+.husky
