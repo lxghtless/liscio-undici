@@ -17,7 +17,7 @@
 		"coverage": "tap --coverage-report=text-lcov | codecov --pipe --disable=gcov",
 		"test:types": "tsd",
 		"clean": "rimraf .nyc_output",
-		"postinstall": "husky install"
+		"install-husky": "husky install"
 	},
 	"keywords": [],
 	"author": "lxghtless",
