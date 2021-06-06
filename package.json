@@ -12,8 +12,8 @@
 		"access": "public"
 	},
 	"scripts": {
-		"lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.js\"",
-		"pretest": "eslint \"lib/**/*.js\" \"test/**/*.js\"",
+		"lint": "eslint --fix \"lib/**/*.js\" \"test/**/*.test.js\"",
+		"pretest": "eslint \"lib/**/*.js\" \"test/**/*.test.js\"",
 		"test": "BROKKR_LOG_LEVEL=silent tap --no-check-coverage test/*.test.js",
 		"coverage": "tap --coverage-report=text-lcov | codecov --pipe --disable=gcov",
 		"test:types": "tsd",
