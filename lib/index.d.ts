@@ -3,11 +3,11 @@ import {Client} from 'undici'
 export interface LiscioClient {
 	request<T = any>(options: any): Promise<T>
 	close(): Promise<void>
-	delete<T = any>(endpoint: string): Promise<T>
-	get<T = any>(endpoint: string): Promise<T>
-	patch<T = any, P = any>(endpoint: string, payload: P): Promise<T>
-	post<T = any, P = any>(endpoint: string, payload: P): Promise<T>
-	put<T = any, P = any>(endpoint: string, payload: P): Promise<T>
+	delete<T = any>(endpoint: string, headers?: Record<string, string>): Promise<T>
+	get<T = any>(endpoint: string, headers?: Record<string, string>): Promise<T>
+	patch<T = any, P = any>(endpoint: string, payload: P, headers?: Record<string, string>): Promise<T>
+	post<T = any, P = any>(endpoint: string, payload: P, headers?: Record<string, string>): Promise<T>
+	put<T = any, P = any>(endpoint: string, payload: P, headers?: Record<string, string>): Promise<T>
 }
 
 export type RequestInterceptorData = {

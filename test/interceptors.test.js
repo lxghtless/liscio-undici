@@ -168,3 +168,43 @@ test('passes config to response interceptor handler as expected', async t => {
 
     t.end()
 })
+
+test("when an interceptor _sometimes_ doesn't add anything to the headers, previous values are not persistent", async t => {
+    const config = {
+        test: 'test-interceptor-config'
+    }
+
+    const handlerStub = sinon.stub()
+
+    const options = {
+        baseUrl: baseTestApiUrl,
+        responseInterceptors: [
+            {
+                name: 'unit-test-interceptor',
+                handler: handlerStub,
+                config
+            }
+        ],
+        json: true
+    }
+
+    const client = httpClientFactory(options)
+
+    const firstCallHeaders = {'X-TEST-HEADER': 'unit-test'}
+
+    let books = await client.get('/api/v1/books', firstCallHeaders)
+
+    t.true(typeof books !== 'undefined')
+
+    const secondCallHeaders = {}
+
+    books = await client.get('/api/v1/books', secondCallHeaders)
+
+    // ensure we aren't carrying over headers from previous calls
+    t.true(typeof secondCallHeaders['X-TEST-HEADER'] === 'undefined')
+    t.true(typeof books !== 'undefined')
+
+    await client.close()
+
+    t.end()
+})

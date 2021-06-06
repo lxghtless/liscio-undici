@@ -24,17 +24,17 @@
 	"license": "ISC",
 	"dependencies": {
 		"@lxghtless/brokkr": "^0.1.0",
-		"undici": "^3.3.3"
+		"undici": "^3.3.6"
 	},
 	"devDependencies": {
 		"@lxghtless/eslint-config-prettier": "^1.1.0",
-		"@types/node": "^14.14.37",
-		"codecov": "^3.8.1",
+		"@types/node": "^15.12.1",
+		"codecov": "^3.8.2",
 		"husky": "^6.0.0",
 		"rimraf": "^3.0.2",
-		"sinon": "^10.0.0",
-		"tap": "^15.0.2",
-		"tsd": "^0.14.0"
+		"sinon": "^11.1.1",
+		"tap": "^15.0.9",
+		"tsd": "^0.17.0"
 	},
 	"husky": {
 		"hooks": {
