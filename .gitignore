@@ -8,3 +8,4 @@ dist
 try.js
 .vscode
 .husky
+.npm
