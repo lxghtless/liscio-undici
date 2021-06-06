@@ -4,6 +4,10 @@
 	"description": "A simple undici http client wrapper with interceptors.",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"homepage": "https://lxghtless.github.io/liscio-undici/",
+	"repository": {
+		"url": "https://github.com/lxghtless/liscio-undici.git"
+	},
 	"files": [
 		"lib"
 	],
