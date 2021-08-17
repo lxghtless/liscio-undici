@@ -12,12 +12,24 @@ sidebar_label: options
 import {Client} from 'undici'
 
 export type LiscioClientOptions = {
-	baseUrl: string
+	baseUrl?: string
+	/*
+		Default: liscio-undici
+	*/
 	userAgent?: string
 	requestInterceptors?: LiscioRequestInterceptor[]
 	responseInterceptors?: LiscioResponseInterceptor[]
 	undiciOptions?: Client.Options
 	json?: boolean
+	/*
+		If a client is provided, baseUrl is not used
+	*/
+	client?: Client
+	/*
+		Default: 299
+	*/
+	maxStatusCode?: number,
+	disableRejectGtMaxStatusCode?: boolean
 }
 ```
 

@@ -1,4 +1,4 @@
-import {Client} from 'undici'
+import {Client, Dispatcher} from 'undici'
 
 export interface LiscioClient {
 	request<T = any>(options: any): Promise<T>
@@ -18,7 +18,7 @@ export type RequestInterceptorData = {
 }
 
 export type ResponseInterceptorInfo<T = any> = {
-	response: Client.ResponseData
+	response: Dispatcher.ResponseData
 	data: T
 }
 
@@ -37,12 +37,18 @@ export interface LiscioResponseInterceptor<T = any, C = any> extends BaseInterce
 }
 
 export type LiscioClientOptions = {
-	baseUrl: string
+	baseUrl?: string
 	userAgent?: string
 	requestInterceptors?: LiscioRequestInterceptor[]
 	responseInterceptors?: LiscioResponseInterceptor[]
 	undiciOptions?: Client.Options
 	json?: boolean
+	client?: Client
+	/*
+		Default: 299
+	*/
+	maxStatusCode?: number,
+	disableRejectGtMaxStatusCode?: boolean
 }
 
 /**
